@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Remitos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Control de Remitos</h1>
+  <p>La Primera de la Unión</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Agregar cliente</h2>
+
+    <form id="formCliente">
+      <input type="text" id="nombreCliente" placeholder="Nombre del cliente" required>
+
+      <select id="repartoCliente" required>
+        <option value="">Seleccionar reparto</option>
+        <option value="151">Reparto 151</option>
+        <option value="152">Reparto 152</option>
+        <option value="153">Reparto 153</option>
+      </select>
+
+      <button type="submit">Guardar cliente</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Cargar remito</h2>
+
+    <form id="formRemito">
+      <input type="date" id="fechaRemito" required>
+      <input type="text" id="numeroRemito" placeholder="Últimos 4 dígitos del remito" maxlength="4" required>
+
+      <select id="clienteRemito" required>
+        <option value="">Seleccionar cliente</option>
+      </select>
+
+      <h3>Envases comunes</h3>
+      <div class="grid">
+        <input type="number" id="cant20" placeholder="20L" min="0">
+        <input type="number" id="cant12" placeholder="12L" min="0">
+        <input type="number" id="cantSoda" placeholder="Soda" min="0">
+        <input type="number" id="cantDispenser" placeholder="Dispenser" min="0">
+      </div>
+
+      <button type="button" id="btnMasCategorias" class="btn-secundario">Mostrar más categorías</button>
+
+      <div id="masCategorias" class="oculto">
+        <h3>Más categorías</h3>
+        <div class="grid">
+          <input type="number" id="cantMedio" placeholder="1/2" min="0">
+          <input type="number" id="cantUno" placeholder="1/1" min="0">
+          <input type="number" id="cantUnoCuarto" placeholder="1 1/4" min="0">
+          <input type="number" id="cantUnoMedio" placeholder="1 1/2" min="0">
+          <input type="number" id="cant8" placeholder="8" min="0">
+          <input type="number" id="cant10" placeholder="10" min="0">
+        </div>
+      </div>
+
+      <textarea id="observaciones" placeholder="Observaciones"></textarea>
+
+      <button type="submit" id="btnGuardarRemito">Guardar remito</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Clientes</h2>
+
+    <div class="grid">
+      <input type="text" id="buscarCliente" placeholder="Buscar cliente">
+
+      <select id="filtroRepartoClientes">
+        <option value="">Todos los repartos</option>
+        <option value="151">Reparto 151</option>
+        <option value="152">Reparto 152</option>
+        <option value="153">Reparto 153</option>
+      </select>
+    </div>
+
+    <div id="listaClientes"></div>
+  </section>
+
+  <section class="card">
+    <h2>Historial de remitos</h2>
+
+    <input type="text" id="buscarRemito" placeholder="Buscar por número de remito o cliente">
+
+    <div id="historialRemitos"></div>
+  </section>
+
+  <section class="card">
+    <h2>Resumen para facturar</h2>
+
+    <div class="grid">
+      <select id="resumenCliente">
+        <option value="">Seleccionar cliente</option>
+      </select>
+
+      <input type="date" id="fechaDesde">
+      <input type="date" id="fechaHasta">
+    </div>
+
+    <button id="btnResumen">Calcular resumen</button>
+    <button id="btnExportarResumen">Exportar resumen a Excel</button>
+
+    <div id="resultadoResumen"></div>
+  </section>
+
+  <section class="card">
+    <h2>Copia de seguridad</h2>
+
+    <button id="btnExportar">Exportar backup</button>
+
+    <label class="importar">
+      Importar backup
+      <input type="file" id="inputImportar" accept=".json">
+    </label>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
